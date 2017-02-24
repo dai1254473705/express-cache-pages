@@ -1,0 +1,7 @@
+﻿#将node_module放到隐藏文件
+
+/node_modules
+#将npm-debug.*隐藏
+
+npm-debug.*
+
