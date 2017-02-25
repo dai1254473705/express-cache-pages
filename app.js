@@ -1,14 +1,24 @@
-const express = require("express");
-const app     = express();
+var express = require("express");
+var morgan  = require("morgan");
+var path 	= require('path');
+var app     = express();
+var ejs 	= require('ejs');
 
-app.get("/",function(req,res){
-	res.send("hello world");
-})
+//app.get("/",function(req,res){
+//	res.send("hello world");
+//});
 
-const server = app.listen(3000,function(){
-	const host = server.address().address;
-	const port = server.address().port;
-	console.log(host);
-	console.log(port);
+// view engine setup
+app.engine('html', ejs.__express);
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'html');
+
+app.use(morgan("dev"));
+
+//主页
+app.use('/', index);
+
+var server = app.listen(3000,function(){
 	console.log("http://127.0.0.1:3000");
 });
+module.exports = app;
