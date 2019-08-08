@@ -3,15 +3,28 @@
   "version": "1.0.0",
   "description": "The middleware for express to cache dynamic pages to disk",
   "main": "main.js",
+  "private": false,
   "scripts": {
     "start": "webpack-dev-server --hot --watch"
+  },
+  "engines": {
+    "node": ">6.0.0"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dai1254473705/express-cache-pages.git"
   },
+  "keywords": [
+    "express",
+    "javascript",
+    "node",
+    "ejs",
+    "jade",
+    "html",
+    "cache"
+  ],
   "author": {
-    "name": "daiyunzhou",
+    "name": "yunzhoudai",
     "email": "1254473705@qq.com"
   },
   "license": "MIT",
