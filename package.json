@@ -1,19 +1,33 @@
 {
-  "name": "express_test",
+  "name": "express-cache-pages",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "The middleware for express to cache dynamic pages to disk",
+  "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server --hot --watch"
   },
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dai1254473705/express-cache-pages.git"
+  },
+  "author": {
+    "name": "daiyunzhou",
+    "email": "1254473705@qq.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dai1254473705/express-cache-pages/issues"
+  },
+  "homepage": "https://github.com/dai1254473705/express-cache-pages#readme",
+  "devDependencies": {
+    "webpack": "^4.26.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  },
   "dependencies": {
+    "eslint": "^5.9.0",
     "ejs": "^2.5.6",
     "express": "^4.14.1",
     "morgan": "^1.8.1"
-  },
-  "devDependencies": {
-    "serve-favicon": "^2.4.0"
   }
 }
