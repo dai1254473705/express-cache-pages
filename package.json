@@ -5,7 +5,8 @@
   "main": "main.js",
   "private": false,
   "scripts": {
-    "start": "webpack-dev-server --hot --watch"
+    "test": "mocha",
+    "start": "node main.js"
   },
   "engines": {
     "node": ">6.0.0"
@@ -33,14 +34,20 @@
   },
   "homepage": "https://github.com/dai1254473705/express-cache-pages#readme",
   "devDependencies": {
-    "webpack": "^4.26.1",
-    "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.10"
+    "mocha": "^6.2.0"
   },
+  "contributors": [
+    {
+      "name": "yunzhoudai",
+      "email": "1254473705@qq.com"
+    }
+  ],
   "dependencies": {
+    "ejs": "^2.6.2",
     "eslint": "^5.9.0",
-    "ejs": "^2.5.6",
-    "express": "^4.14.1",
-    "morgan": "^1.8.1"
+    "express": "^4.17.1",
+    "fs-extra": "^8.1.0",
+    "morgan": "^1.9.1",
+    "type-is": "^1.6.18"
   }
 }
