@@ -3,6 +3,7 @@ var morgan  = require("morgan");
 var path 	= require('path');
 var app     = express();
 var ejs 	= require('ejs');
+var loadPage = require('./init-cache-pages').loadPage;
 
 var index = require('./routes/index');
 
@@ -10,8 +11,7 @@ var index = require('./routes/index');
 app.engine('ejs', ejs.__express);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-
-
+app.use(loadPage);
 app.use(morgan("dev"));
 app.use(express.static(path.join(__dirname, 'public')));
 

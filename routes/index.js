@@ -1,7 +1,7 @@
 var express = require('express');
 var router  = express.Router();
 
-router.get('/', function(req, res, next) {
+router.get('/*', function(req, res, next) {
 	setTimeout(function(){
 		res.render('index', {
 			title: "title",  
@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 				name: 'express-cache-pages',
 			}
 		});
-	},3000)
+	},1000)
 });
 
 module.exports = router;

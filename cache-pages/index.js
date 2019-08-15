@@ -5,4 +5,4 @@
 
  'use strict';
 
-module.exports = require('./source/main');
+module.exports = require('./cache-pages');
