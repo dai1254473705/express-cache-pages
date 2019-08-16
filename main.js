@@ -11,12 +11,15 @@ var index = require('./routes/index');
 app.engine('ejs', ejs.__express);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.use(loadPage);
 app.use(morgan("dev"));
 app.use(express.static(path.join(__dirname, 'public')));
 
 //主页
-app.use('/', index);
+app.use('/', loadPage({
+	term: 10000,
+	validTimeStamp: 0,
+	load: true
+}),index);
 app.use(function(req, res) {
 	res.end(req.url)
 })
