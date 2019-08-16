@@ -43,6 +43,7 @@
     }
   ],
   "dependencies": {
+    "cookie-parse": "^0.4.0",
     "debug": "^4.1.1",
     "ejs": "^2.6.2",
     "eslint": "^5.9.0",

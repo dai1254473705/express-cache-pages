@@ -45,4 +45,4 @@ function utils (){
     return obj;
 };
 
-module.exports = utils;
+module.exports = utils();

@@ -62,7 +62,7 @@ const cachePagesInit = cachePages({
     global: true,
     sos: 'url',//要跳转的链接
     path: path.join(__dirname, './../../..', 'wiicache'), // 每个项目都需单独配置
-	cookiesBlackList: [],
+	cookiesBlackList: ['_uid'],
     rules: [
         {
             route: '',
