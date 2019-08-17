@@ -12,8 +12,6 @@
 const fse = require('fs-extra');
 const path = require('path');
 const debug = require('debug')('cache');
-const checkTypes = require('./check-types');
-const checkLoad = require('./check-load');
 const loadPage = require('./load-page');
 /**
  * Module variables.
@@ -26,9 +24,15 @@ const loadPage = require('./load-page');
  * @param {Object} [options]
  * @return {cache} which is an callable function
  * @public
+ * 
+ * @member { Object } runTime `run time control`
+ * @member { Object } config `init config`
+ * @member { Function }  
+ * 
  */
 
 function cachePages(options){
+    debug('%O\n',options);
     // init Object
     const cache = new Object();
 
@@ -49,28 +53,7 @@ function cachePages(options){
         'validTimeStamp': 0, // Caching function start time
         'load': true, // default is true,only used when middleware in specific route.
         'path': '',// <requeired> the path to save cache files to disk.
-    };
-
-    /**
-     * check type
-     * @return typeTag
-     */
-    cache.checkType = checkTypes(cache, options); 
-
-    /**
-     * Check whether the pages of html need to load;
-     * @param { String } md5Path `md5 path`
-     * @return [Boolean] need to load return true ,else return false;
-     */
-    cache.checkLoad =  checkLoad(cache);
-    
-    /**
-     * get static page of file
-     * @param { String } md5Path `md5 path`
-     * @return file
-     */
-    cache.getFile = function (md5Path) {
-        return '';
+        'minLength': 0,// can load file content min length.
     };
 
     /**
@@ -80,7 +63,7 @@ function cachePages(options){
      * @param { Function } [Next] `next of express`
      * @return null
      */
-    cache.loadPage = loadPage(cache);
+    cache.loadPage = loadPage(cache,options);
     /**
      * return cache
      */

@@ -12,6 +12,8 @@
  * @api private
  */
 const crypto = require('crypto');
+const path = require('path');
+const fse = require('fs-extra');
 
 function utils (){
     /**
@@ -39,9 +41,23 @@ function utils (){
     };
 
     /**
+     * generate file dir
+     * @private
+     */
+    obj.fileDir = function (md5Path,rootDir){
+        const fileName = md5Path;
+        const fileFirst = fileName.substr(0, 2);
+        const fileSecond = fileName.substr(2, 2);
+        const filePath = path.join(rootDir,fileFirst ,fileSecond ,fileName);
+        return filePath;
+    };
+    /**
      * Module variables.
      * @private
      */
+    obj.readFileAsync = function (filename){
+        return fse.pathExistsSync(filename);
+    };
     return obj;
 };
 

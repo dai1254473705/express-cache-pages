@@ -12,6 +12,8 @@
 const debug = require('debug')('cache');
 
 function checkTypes (cache, options){
+    debug('%s','start step 2: check-types process...');
+    console.log(options);
     // set start time
     cache.runTime.startTime =  new Date().getTime();
 
@@ -41,6 +43,11 @@ function checkTypes (cache, options){
             typeTag = false;
             throw new Error('express-cache-pages:The cookiesBlackList must be an array!');
         }
+    }
+    
+    // check minLength
+    if (typeof options.minLength === 'number') {
+        cache.config.minLength = options.minLength;
     }
 
     // check term
