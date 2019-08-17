@@ -22,12 +22,9 @@ function loadFile(cache,md5Path) {
     try {
         debug('%s','start step 4: read-file process...');
         // get file path、
-        console.log(cache.config);
         const filePath = utils.fileDir(md5Path,cache.config.path);
-        console.log(filePath);
         // read file
         const html = fse.readFileSync(filePath, 'utf-8');
-console.log(html);
         if (html && html.length > cache.config.minLength) {
             return html;
         }

@@ -51,6 +51,14 @@ function utils (){
         const filePath = path.join(rootDir,fileFirst ,fileSecond ,fileName);
         return filePath;
     };
+
+    obj.fileDirPath = function (md5Path,rootDir){
+        const fileName = md5Path;
+        const fileFirst = fileName.substr(0, 2);
+        const fileSecond = fileName.substr(2, 2);
+        const filePath = path.join(rootDir,fileFirst ,fileSecond);
+        return filePath;
+    };
     /**
      * Module variables.
      * @private

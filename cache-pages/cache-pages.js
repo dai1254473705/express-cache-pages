@@ -13,6 +13,7 @@ const fse = require('fs-extra');
 const path = require('path');
 const debug = require('debug')('cache');
 const loadPage = require('./load-page');
+const savePage = require('./save-pages');
 /**
  * Module variables.
  * @private
@@ -64,6 +65,16 @@ function cachePages(options){
      * @return null
      */
     cache.loadPage = loadPage(cache,options);
+
+    /**
+     * The save pages method.
+     * @param { Object } cache `cache Object`
+     * @param { Object } [Response] `response of express`
+     * @param { Function } [Next] `next of express`
+     * @return null
+     */
+    cache.savePage = savePage(cache,options);
+
     /**
      * return cache
      */

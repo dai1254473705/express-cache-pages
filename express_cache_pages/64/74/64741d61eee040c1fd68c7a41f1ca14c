@@ -3,9 +3,9 @@
 	<head>
 		<meta charset="UTF-8">
 		<link rel="shortcut icon" href="/favicon.ico" /> 
-		<title>缓存</title>
+		<title>title</title>
 	</head>
 	<body>
-		name:哈哈哈
-	</body>
+		name: express-cache-pages	</body>
 </html>
+<!-- cache version : 1566016001077 -->

@@ -50,6 +50,11 @@ function checkTypes (cache, options){
         cache.config.minLength = options.minLength;
     }
 
+    // check mode
+    if (typeof options.mode === 'string') {
+        cache.config.mode = options.mode || 'strict'; 
+    }
+
     // check term
     if (typeof options.term === 'number') {
         cache.config.term = options.term;

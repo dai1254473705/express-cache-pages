@@ -1,5 +1,5 @@
 /*!
- * check-load
+ * load-page
  * yunzhoudai 2019-08-16 18:09
  * Copyright(c) 2019 yunzhoudai
  * MIT Licensed
@@ -69,8 +69,7 @@ function loadPage (cache, options){
                     }
                 });
             } catch (error) {
-                console.error(error);
-                Next();
+                Next(error);
             } finally {
                 debug('%s','start step 1: load-page process end');
             }

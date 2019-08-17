@@ -67,6 +67,7 @@ const cachePagesInit = cachePages({
     term: 10000,// 失效时间，如果设置0，永远不失效
     validTimeStamp: 0,// 开始生效的时间
     minLength: 100,// html最短长度
+    mode: 'strict'
     // load: true,//是否需要读取，单个路由静态化开关
 });
 

@@ -4,7 +4,7 @@ var path 	= require('path');
 var app     = express();
 var router  = express.Router();
 var ejs 	= require('ejs');
-var loadPage = require('./init-cache-pages').loadPage;
+var cachePages = require('./init-cache-pages');
 
 // view engine setup
 app.engine('ejs', ejs.__express);
@@ -16,17 +16,23 @@ app.use(router);
 
 // main page
 router.get('/home',
-	loadPage({ term: 100000000, validTimeStamp: 0, load: true }), 
+	cachePages.loadPage({ term: 5000, validTimeStamp: 0, load: true }), 
 	function(req, res, next) {
 		setTimeout(function(){
 			res.render('index', {
-				title: "title",  
+				title: "title", 
 				data: {
 					name: 'express-cache-pages',
 				}
+			},function (err,html){
+				req.html = html;
+				next();
 			});
 		},1000)
-	}
+	},
+	cachePages.savePage({
+		mode: 'strict'
+	})
 );
 
 // 404 or other page
