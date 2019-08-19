@@ -13,7 +13,6 @@ const debug = require('debug')('cache');
 
 function checkTypes (cache, options){
     debug('%s','start step 2: check-types process...');
-    console.log(options);
     // set start time
     cache.runTime.startTime =  new Date().getTime();
 

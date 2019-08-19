@@ -30,7 +30,6 @@ function loadFile(cache,md5Path) {
         }
         return false;
     } catch (error) {
-        console.log(error);
         return false;
     }
 }

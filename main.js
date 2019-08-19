@@ -16,7 +16,12 @@ app.use(router);
 
 // main page
 router.get('/home',
-	cachePages.loadPage({ term: 5000, validTimeStamp: 0, load: true }), 
+	cachePages.loadPage({ 
+		term: 5000, 
+		validTimeStamp: 0, 
+		load: true,
+		mode: 'strict'
+	}), 
 	function(req, res, next) {
 		setTimeout(function(){
 			res.render('index', {

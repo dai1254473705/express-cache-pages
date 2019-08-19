@@ -28,3 +28,5 @@ pids
 
 # TypeScript v1 declaration files
 typings/
+
+/express_cache_pages

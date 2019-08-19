@@ -1,5 +1,5 @@
 /*!
- * express-cache-pages
+ * util
  * yunzhoudai 2019-08-14 20:14
  * Copyright(c) 2019 yunzhoudai
  * MIT Licensed
@@ -58,13 +58,6 @@ function utils (){
         const fileSecond = fileName.substr(2, 2);
         const filePath = path.join(rootDir,fileFirst ,fileSecond);
         return filePath;
-    };
-    /**
-     * Module variables.
-     * @private
-     */
-    obj.readFileAsync = function (filename){
-        return fse.pathExistsSync(filename);
     };
     return obj;
 };

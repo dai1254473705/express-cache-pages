@@ -28,13 +28,43 @@ function loadPage (cache, options){
         return function (Request,Response,Next){
             debug('%s','start step 1: load-page process...');
             try {
+                childOptions = childOptions instanceof Object ? childOptions : {};
                 if (!checkTypes(cache, options)) {
                     return;
                 }
+
+                /**
+                 * check mode and get url
+                 * `strict`: Are there any "?" in the url ,the results are different.
+                 *      127.0.0.1:3000/home/          ===> md5: 64741d61eee040c1fd68c7a41f1ca14c
+                 *      127.0.0.1:3000/home/?name=123 ===> md5: 7b83c2cd7160f6cb962585ae026c66b1
+                 * `greedy`: Are there any "?" in the url ,the results are same.
+                 *      127.0.0.1:3000/home/          ===> md5: 64741d61eee040c1fd68c7a41f1ca14c
+                 *      127.0.0.1:3000/home/?name=123 ===> md5: 64741d61eee040c1fd68c7a41f1ca14c
+                 */
+                let testUrl = '';
+                let mode = childOptions.mode || cache.config.mode || '';
+                switch(mode) {
+                    case 'strict':
+                        testUrl = Request.url;
+                        break;
+                    case 'greedy':
+                        testUrl = Request.path;
+                        break;
+                    default:
+                        testUrl = Request.url;
+                }
+                // test and add '/' to keep: '127.0.0.1:3000/home/' ==='127.0.0.1:3000/home'
+                if (testUrl.lastIndexOf('/') !== testUrl.length-1) {
+                    testUrl = `${testUrl}/`
+                }
+
                 // get md5 path
-                const url = `${Request.headers.host}${Request.url}`;
+                const url = `${Request.headers.host}${testUrl}`;
                 const md5Path = utils.md5(url);
 
+                debug('%s','load md5Path',url);
+                debug('%s','load md5:',md5Path);
                 // cookie parse
                 const cookies = cookieParse.parse(Request.headers.cookie);
                 // check load
