@@ -1,6 +1,6 @@
 {
   "name": "express-cache-pages",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The middleware for express to cache dynamic pages to disk",
   "main": "main.js",
   "private": false,
